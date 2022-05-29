@@ -4,13 +4,40 @@ public class Lista<T> {
 	
 	public void inserir(T dado) {
 		No<T> aux = new No<T>(dado);
-		if(tot == 0) {
+		
+		//método pra inserção ordenada		
+		if(com == null){//quando não possui nenhum cadastrado
 			com = aux;
+			fim = aux;
 		} else {
-			aux.esq = fim;
-			fim.dir = aux;
+			Loja comP = (Loja) com.dado;
+			Loja fimP =  (Loja) fim.dado;
+			Loja aux2 = (Loja) aux.dado;
+			No aux3 = com;
+			Loja aux4 = (Loja) aux3.dado;
+			
+			if(aux2.validade.after(fimP.validade)){ //a data adicionada é maior
+				fim.dir = aux;
+				aux.esq = fim;
+				fim = aux;
+			} else if (aux2.validade.before(comP.validade)) {//a data adicionada é menor
+				com.esq = aux;
+				aux.dir = com;
+				com = aux;
+			} else {
+				while(aux3 != null){ //quando insere no meio
+					Loja aux5 = (Loja) aux3.dir.dado;
+					if (aux2.validade.compareTo(aux5.validade) <= 0 && aux2.validade.compareTo(aux4.validade) >= 0){
+						aux.esq = aux3;
+						aux3.dir.esq = aux;
+						aux.dir = aux3.dir;
+						aux3.dir = aux;
+						break;
+					}
+					aux3 = aux3.dir;
+				}
+			}
 		}
-		fim = aux;
 		tot++;
 	}
 	

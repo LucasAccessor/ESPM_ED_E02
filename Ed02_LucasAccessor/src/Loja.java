@@ -27,9 +27,9 @@ public class Loja {
 	public String toString() {
 		String aux = "";
 		SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-		aux += "Nome: " + nome + "\n";
-		aux += "Validade: " + formato.format(validade) + "\n";
-		aux += "Quantidade: " + qntd + "\n";
+		aux += "Nome: " + nome + " | ";
+		aux += "Validade: " + formato.format(validade) + " | ";
+		aux += "Quantidade: " + qntd + "| \n";
 		return aux;
 	}
 

@@ -103,7 +103,7 @@ public class Operacoes {
 	
 	//lista os produtos
 	public static void listar() {
-		No<Loja> aux = lista.com;
+		No<Loja> aux = lista.com;		
 		String impressao = "";
 		if(aux == null) {
 			impressao = "Não possui nenhum item cadastrado  ):";
