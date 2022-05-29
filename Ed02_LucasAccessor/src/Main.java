@@ -23,6 +23,7 @@ public class Main {
 					Operacoes.vender();
 					break;
 				case 4: // fim
+					JOptionPane.showMessageDialog(null, "Feito por Lucas Accessor \n (:");
 					break;
 				}
 			}
