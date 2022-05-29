@@ -1,10 +1,13 @@
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Loja {
-	String nome, validade;
+	String nome;
+	Date validade;
 	int qntd;
 
 	
-	public Loja(String nome, String validade, int qntd) {
+	public Loja(String nome, Date validade, int qntd) {
 		this.validade = validade;
 		this.nome = nome;
 		this.qntd = qntd;
@@ -23,8 +26,9 @@ public class Loja {
 	@Override
 	public String toString() {
 		String aux = "";
+		SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
 		aux += "Nome: " + nome + "\n";
-		aux += "Validade: " + validade + "\n";
+		aux += "Validade: " + formato.format(validade) + "\n";
 		aux += "Quantidade: " + qntd + "\n";
 		return aux;
 	}
